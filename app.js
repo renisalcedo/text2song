@@ -6,9 +6,9 @@ var authToken = 'd1597410f93e2250dac631341f43f542';
 var client = require('twilio')(accountSid, authToken); 
  
 client.messages.create({ 
-    to: "+15558675309", 
-    from: "+15017250604", 
-    body: "This is the ship that made the Kessel Run in fourteen parsecs?", 
+    from: "+13479236684", 
+    to:"",
 }, function(err, message) { 
     console.log(message.sid); 
 });
+
