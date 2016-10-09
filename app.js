@@ -29,8 +29,8 @@ app.post('/message', function(req, res) {
       var obj = JSON.parse(json);
       var id = obj["items"][0]["id"]["videoId"];
 
-    // console.log(obj);
-    open("https://www.youtube.com/watch?v=" + id);
+      // console.log(obj);
+      open("https://www.youtube.com/watch?v=" + id);
     }
   });
 });
