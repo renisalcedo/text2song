@@ -29,29 +29,14 @@ app.post('/message', function(req, res) {
       console.log(error);
     }
     else {
+      // Retrieve data from api
       var json = JSON.stringify(result, null, 2);
-
       var obj = JSON.parse(json);
-
       var id = obj["items"][0]["id"]["videoId"];
+
     // console.log(obj);
     open("https://www.youtube.com/watch?v=" + id);
     }
   });
 });
-
-
-
- app.listen(3000);
-
-//require the Twilio module and create a REST client
-/*
-var client = require('twilio')(accountSid, authToken);
-
-client.messages.create({
-    from: "+13479236684",
-    to:"13474789975",
-}, function(err, message) {
-    console.log(message.sid);
-});
-*/
+app.listen(3000);
