@@ -8,8 +8,11 @@ var authToken = 'd1597410f93e2250dac631341f43f542';
 var express = require('express');
 var bodyParser = require('body-parser');
 
+var open = require('open');
+open('http://cssdeck.com');
+
 var app = express();
- 
+
  app.use(bodyParser.urlencoded({ extended: false }));
  
  app.post('/message', function(req, res) {
@@ -17,7 +20,7 @@ var app = express();
      var msgFrom = req.body.From;
      var msgBody = req.body.Body;
      
-     res.send(" <Response> <Message> Hello ${msgFrom} You Said: ${msgBody} </Message> </Response>");
+     res.send("<Response> <Message> Hello ${msgFrom} You Said: ${msgBody} </Message> </Response>");
  });
  app.listen(3000);
  
