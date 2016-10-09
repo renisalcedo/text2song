@@ -2,8 +2,6 @@
 var accountSid = 'ACa9301c80392577ceab046d878520a077';
 var authToken = 'd1597410f93e2250dac631341f43f542';
 
-// Google API Credentials
-
 // App modules
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -21,9 +19,14 @@ youTube.search('World War z Trailer', 2, function(error, result) {
     }
     else {
       var json = JSON.stringify(result, null, 2);
-      console.log(json);
 
-      open("https://www.youtube.com/watch?v=" + "4EC7P5WdUko");
+      var obj = JSON.parse(json);
+
+      var id = obj["items"][0]["id"]["videoId"];
+
+      // console.log(obj);
+
+      open("https://www.youtube.com/watch?v=" + id);
     }
 });
 
