@@ -9,7 +9,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var open = require('open');
-open('http://cssdeck.com');
+open("https://www.google.com/");
 
 var app = express();
 
