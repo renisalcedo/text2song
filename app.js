@@ -15,9 +15,8 @@ youTube.setKey('AIzaSyCfNYilt9yW_HaD5pGcp-JIRPwKdTt2ANQ');
 
 // App
  app.use(bodyParser.urlencoded({ extended: false }));
- var msgBody = "";
 
- //Gets message
+//Gets message
 app.post('/message', function(req, res) {
   console.log(req.body);
   var msgFrom = req.body.From;
