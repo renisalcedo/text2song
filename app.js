@@ -1,6 +1,6 @@
-// Twilio Credentials 
-var accountSid = 'ACa9301c80392577ceab046d878520a077'; 
-var authToken = 'd1597410f93e2250dac631341f43f542'; 
+// Twilio Credentials
+var accountSid = 'ACa9301c80392577ceab046d878520a077';
+var authToken = 'd1597410f93e2250dac631341f43f542';
 
 // Google API Credentials
 
@@ -8,30 +8,45 @@ var authToken = 'd1597410f93e2250dac631341f43f542';
 var express = require('express');
 var bodyParser = require('body-parser');
 
-var open = require('open');
+/*var open = require('open');
 open("https://www.google.com/");
+*/
+
+var YouTube = require('youtube-node');
+
+var youTube = new YouTube();
+
+youTube.setKey('AIzaSyCfNYilt9yW_HaD5pGcp-JIRPwKdTt2ANQ');
+
+youTube.search('World War z Trailer', 2, function(error, result) {
+    if (error) {
+          console.log(error);
+            }
+      else {
+            console.log(JSON.stringify(result, null, 2));
+              }
+});
 
 var app = express();
 
  app.use(bodyParser.urlencoded({ extended: false }));
- 
+
  app.post('/message', function(req, res) {
      console.log(req.body);
      var msgFrom = req.body.From;
      var msgBody = req.body.Body;
-     
      res.send("<Response> <Message> Hello ${msgFrom} You Said: ${msgBody} </Message> </Response>");
  });
  app.listen(3000);
- 
-//require the Twilio module and create a REST client 
+
+//require the Twilio module and create a REST client
 /*
-var client = require('twilio')(accountSid, authToken); 
- 
-client.messages.create({ 
-    from: "+13479236684", 
+var client = require('twilio')(accountSid, authToken);
+
+client.messages.create({
+    from: "+13479236684",
     to:"13474789975",
-}, function(err, message) { 
-    console.log(message.sid); 
+}, function(err, message) {
+    console.log(message.sid);
 });
 */
